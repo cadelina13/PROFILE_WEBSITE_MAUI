@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	<title>Rio Cadeliña - Profile</title>
+	<base href="/" />
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+	<link href="css/app.css" rel="stylesheet" />
+	<link href="PROFILE_WEBSITE_MAUI.styles.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+	<link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<link href="css/mystyle.css" rel="stylesheet" />
+	<script src="js/all.js" data-auto-replace-svg="nest"></script>
+
+	<style>
+
+		html, body {
+			font-family: 'Noto Sans Display';
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="status-bar-safe-area"></div>
+
+	<div id="app">
+		<div style="position:absolute; top:30vh; width:100%; text-align:center">
+			<h1>Rio Cadeliña</h1>
+			<p>Loading <i class="ml-3 fas fa-spin fa-spinner "></i></p>
+		</div>
+	</div>
+
+	<div id="blazor-error-ui">
+		An unhandled error has occurred.
+		<a href="" class="reload">Reload</a>
+		<a class="dismiss">🗙</a>
+	</div>
+
+	<script src="_framework/blazor.webview.js" autostart="false"></script>
+	<script src="_content/MudBlazor/MudBlazor.min.js"></script>
+	<script>
+		var GLOBAL = {};
+		GLOBAL.DotNetReference = null;
+		GLOBAL.SetDotnetReference = function (pDotNetReference) {
+			GLOBAL.DotNetReference = pDotNetReference;
+		};
+		(function () {
+			var themeToggle = document.getElementById("#theme-toggle");
+			var isToggled = false;
+			window.theme = {
+				btnElement: function (element) {
+					themeToggle = element;
+					themeToggle.onclick = function () {
+						themeToggle = element;
+						//themeToggle.classList.contains("light-theme") ? theme.enableDarkMode : theme.enableLightMode;
+
+						if (themeToggle.classList.contains("dark-theme")) {
+							themeToggle.classList.remove("dark-theme");
+							themeToggle.classList.add("light-theme");
+						} else {
+							themeToggle.classList.remove("light-theme");
+							themeToggle.classList.add("dark-theme");
+						}
+					}
+				},
+				toggle: function () {
+					themeToggle.classList.contains("light-theme") ? theme.enableDarkMode : theme.enableLightMode();
+				},
+				enableLightMode: function () {
+					themeToggle.classList.remove("dark-theme");
+					themeToggle.classList.add("light-theme");
+				},
+				enableDarkMode: function () {
+					themeToggle.classList.remove("light-theme");
+					themeToggle.classList.add("dark-theme");
+				}
+			};
+		})();
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+﻿@page "/educationalbackground"
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        State.APPBAR_TITLE = "Educational Background";
+    }
+}
+
+<div class="row">
+    <div class="col-md-12 pb-3">
+        <MudCard Elevation="25" Class="m-3">
+            <MudCardMedia Image="/images/labasoncentralschool.jpg" Height="200" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5">Labason Central School</MudText>
+                <MudText Typo="Typo.body2">2000 - 2004</MudText>
+                <MudText Typo="Typo.body2">Primary</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Target="_blank" StartIcon="@Icons.Rounded.Map" Link="@("https://www.google.com/maps/place/Labason+Central+School/@8.065901,122.5251009,16.3z/data=!4m12!1m6!3m5!1s0x3253c81cce371bb7:0xf930629fec85083a!2sLabason+Central+School!8m2!3d8.0661864!4d122.5255173!3m4!1s0x3253c81cce371bb7:0xf930629fec85083a!8m2!3d8.0661864!4d122.5255173")" Variant="Variant.Text" Color="Color.Primary">Location</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </div>
+    <div class="col-md-12 pb-3">
+        <MudCard Elevation="25" Class="m-3">
+            <MudCardMedia Image="/images/spenc.jpg" Height="200" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5">Southern Peninsula College</MudText>
+                <MudText Typo="Typo.body2">2004 - 2008</MudText>
+                <MudText Typo="Typo.body2">Secondary</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Target="_blank" StartIcon="@Icons.Rounded.Map" Link="@("https://www.google.com/maps/place/Southern+Peninsula+College/@8.0686263,122.5239169,18.92z/data=!4m5!3m4!1s0x3253c81f2276db05:0xa2030cec48e7873f!8m2!3d8.0687502!4d122.5237637")" Variant="Variant.Text" Color="Color.Primary">Location</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </div>
+    <div class="col-md-12 pb-3">
+        <MudCard Elevation="25" Class="m-3">
+            <MudCardMedia Image="/images/coc.jpg" Height="200" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5">Cagayan de Oro College</MudText>
+                <MudText Typo="Typo.body2">Bachelor of Science in Information Technology</MudText>
+                <MudText Typo="Typo.body2">2014 - 2017</MudText>
+                <MudText Typo="Typo.body2">Tertiary</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Target="_blank" StartIcon="@Icons.Rounded.Map" Link="@("https://www.google.com/maps/place/PHINMA+-+Cagayan+de+Oro+College/@8.481537,124.635883,19.6z/data=!4m5!3m4!1s0x32fff32678db4a4d:0x3fc6f10f4d0966e5!8m2!3d8.4817536!4d124.6359652?hl=en")" Variant="Variant.Text" Color="Color.Primary">Location</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </div>
+</div>

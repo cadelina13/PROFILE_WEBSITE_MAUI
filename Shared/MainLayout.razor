@@ -1,0 +1,151 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="currentTheme" />
+
+<MudLayout>
+    <MudAppBar Elevation="25">
+        <MudIconButton Icon="@(_drawerOpen ? Icons.Rounded.MenuOpen : Icons.Rounded.Menu)" Color="Color.Primary" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudText Color="Color.Primary" @onclick="@(() => nav.NavigateTo(nav.BaseUri))" Style="cursor:pointer;font-family:'Roboto'" Typo="Typo.h6" Class="ml-4 mr-4">
+            @State.APPBAR_TITLE
+        </MudText>
+        <MudSpacer />
+        @*<MudTooltip Text="Download APK">
+            <MudIconButton Target="_blank" Link="@($"{nav.BaseUri}files/riocadelina.apk")" Icon="@Icons.Rounded.Android" Color="Color.Primary" />
+        </MudTooltip>*@
+        <MudTooltip Text="@(currentTheme == defaultTheme ? "Switch to dark mode" : "Switch to light mode")">
+            
+            <MudIconButton Icon="@(currentTheme == darkTheme ? Icons.Rounded.Brightness7 : Icons.Rounded.Brightness4)" Color="Color.Primary" OnClick="DarkMode"/>
+            @*<button @ref="btnElement" @onclick="@(async ()=> { await DarkMode(); })" id="theme-toggle" class="dark-theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 472.39 472.39">
+                    <g class="toggle-sun">
+                        <path d="M403.21,167V69.18H305.38L236.2,0,167,69.18H69.18V167L0,236.2l69.18,69.18v97.83H167l69.18,69.18,69.18-69.18h97.83V305.38l69.18-69.18Zm-167,198.17a129,129,0,1,1,129-129A129,129,0,0,1,236.2,365.19Z" />
+                    </g>
+                    <g class="toggle-circle">
+                        <circle class="cls-1" cx="236.2" cy="236.2" r="103.78" />
+                    </g>
+                </svg>
+            </button>*@
+            @*<MudIconButton OnClick="@(()=> { DarkMode(); })" Icon="@(currentTheme == defaultTheme ? Icons.Material.Filled.Brightness2 : Icons.Material.Filled.Brightness7)" Color="Color.Inherit" />*@
+        </MudTooltip>
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen" Elevation="25">
+        <MudDrawerHeader Class="pl-1" Dense>
+            <MudCard Class="m-0 pl-0" Elevation="0">
+                <MudCardHeader Class="pl-2">
+                    <CardHeaderAvatar>
+                        <MudAvatar Color="Color.Primary">R</MudAvatar>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Color="Color.Inherit" Typo="Typo.h6">Rio Cadeliña</MudText>
+                        <MudText Color="Color.Inherit" Typo="Typo.caption">cadelina13dev@gmail.com</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </MudDrawerHeader>
+        <NavMenu />
+    </MudDrawer>
+
+    <MudMainContent Class="@(_drawerOpen ? "pt-10 pb-5" : "pt-10 pb-5 ")">
+        <MudContainer Style="background-color:inherit" MaxWidth="MaxWidth.ExtraLarge" Class="mt-10">
+            @Body
+            <PROFILE_WEBSITE_MAUI.Pages.PageMyFooter />
+            <MudScrollToTop>
+                <MudFab Size="Size.Small" Color="Color.Primary" Icon="@Icons.Filled.ArrowUpward" />
+            </MudScrollToTop>
+        </MudContainer>
+    </MudMainContent>
+
+</MudLayout>
+@code {
+    bool _drawerOpen = true;
+    ElementReference btnElement;
+    protected override async Task OnInitializedAsync()
+    {
+        var darkmode = await localdb.GetItemAsStringAsync("darkmode");
+        if (darkmode == null)
+        {
+            currentTheme = defaultTheme;
+        }
+        else
+        {
+            currentTheme = darkTheme;
+        }
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender)
+        {
+            await jSRuntime.InvokeVoidAsync("theme.btnElement", btnElement);
+            var lDotNetReference = DotNetObjectReference.Create(this);
+            try
+            {
+                await jSRuntime.InvokeVoidAsync("GLOBAL.SetDotnetReference", lDotNetReference);
+            }
+            catch (Exception) { }
+            await InvokeAsync(StateHasChanged);
+        }
+
+    }
+
+    private static string primaryColor = "#a1a1f7";
+    private static string primaryDarkColor = "#4261ff";
+    MudTheme currentTheme = new MudTheme();
+    MudTheme defaultTheme = new MudTheme()
+    {
+        Palette = new Palette()
+        {
+            Black = "#272c34",
+            AppbarBackground = "#ffffff",
+            DrawerBackground = "#ffffff",
+            Primary = primaryDarkColor,
+            GrayLight = "#7e7cd6"
+        }
+    };
+    MudTheme darkTheme = new MudTheme()
+    {
+        Palette = new Palette()
+        {
+            Primary = primaryColor,
+            Info = "#9fb2fc",
+            Black = "#27272f",
+            Background = "#2c2c30",
+            BackgroundGrey = "#27272f",
+            Surface = "#373740",
+            DrawerBackground = "#27272f",
+            DrawerText = "rgba(255,255,255, 0.50)",
+            DrawerIcon = "rgba(255,255,255, 0.50)",
+            AppbarBackground = "#27272f",
+            AppbarText = "rgba(255,255,255, 0.70)",
+            TextPrimary = "rgba(255,255,255, 0.70)",
+            TextSecondary = "rgba(255,255,255, 0.50)",
+            ActionDefault = "#adadb1",
+            ActionDisabled = "rgba(255,255,255, 0.26)",
+            ActionDisabledBackground = "rgba(255,255,255, 0.12)",
+            Divider = "rgba(255,255,255, 0.12)",
+            DividerLight = "rgba(255,255,255, 0.06)",
+            TableLines = "rgba(255,255,255, 0.12)",
+            LinesDefault = "rgba(255,255,255, 0.12)",
+            LinesInputs = "rgba(255,255,255, 0.3)",
+            TextDisabled = "rgba(255,255,255, 0.2)",
+            Dark = "#41475e"
+        }
+    };
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+    async Task DarkMode()
+    {
+        if (currentTheme == defaultTheme)
+        {
+            currentTheme = darkTheme;
+            await localdb.SetItemAsStringAsync("darkmode", Guid.NewGuid().ToString());
+        }
+        else
+        {
+            currentTheme = defaultTheme;
+            await localdb.RemoveItemAsync("darkmode");
+        }
+    }
+}

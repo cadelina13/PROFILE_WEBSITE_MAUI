@@ -1,0 +1,119 @@
+﻿@page "/"
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        State.APPBAR_TITLE = "Profile";
+    }
+}
+
+<MudPaper Class="p-2" Elevation="25">
+    <div class="row">
+        <div class="col-md-2 pb-3">
+            <MudPaper Style="border-radius:50% !important" Class="p-2 text-center" Elevation="0">
+                <img class="img-thumbnail position-relative" style="border-radius:50%;" src="/images/profilepic.jpg" />
+            </MudPaper>
+        </div>
+        <div class="col-md-5 pb-3">
+            <MudPaper Class="p-3" Outlined>
+                <MudTextField T="string" ReadOnly Text="Rio V. Cadeliña" Label="Name" Variant="Variant.Text" Class="mb-2" />
+                <MudTextField T="string" ReadOnly Text="October 13, 1992" Label="Birthday" Variant="Variant.Text" Class="mb-2" />
+                <MudTextField T="string" ReadOnly Text="Zamboanga del Norte, Philippines" Label="Birth Place" Variant="Variant.Text" Class="mb-2" />
+            </MudPaper>
+        </div>
+        <div class="col-md-5 pb-3">
+            <MudPaper Class="p-3" Outlined>
+                <MudTextField T="string" ReadOnly Text="Single" Label="Civil Status" Variant="Variant.Text" Class="mb-2" />
+                <MudTextField T="string" ReadOnly Text="Filipino" Label="Nationality" Variant="Variant.Text" Class="mb-2" />
+                <MudTextField T="string" ReadOnly Text="Male" Label="Gender" Variant="Variant.Text" Class="mb-2" />
+            </MudPaper>
+        </div>
+        <div class="col-md-6 pb-3">
+            <MudPaper Class="p-3" Outlined>
+                <MudText Typo="Typo.body1" Color="Color.Primary" Class="mb-4">Contact Details</MudText>
+                <MudTextField T="string" ReadOnly Text="(+63) 916 3617 169" Label="Phone Number" Variant="Variant.Text" Class="mb-2" />
+                <MudTextField T="string" ReadOnly Text="cadelina13dev@gmail.com" Label="Email Address 1" Variant="Variant.Text" Class="mb-2" />
+                <MudTextField T="string" ReadOnly Text="cadelina13@gmail.com" Label="Email Address 2" Variant="Variant.Text" Class="mb-2" />
+            </MudPaper>
+        </div>
+        <div class="col-md-6 pb-3">
+            <MudPaper Class="p-3" Outlined>
+                <MudText Typo="Typo.body1" Color="Color.Primary" Class="mb-4">Present Address</MudText>
+                <MudTextField T="string" ReadOnly Text="Misamis Oriental" Label="Province" Variant="Variant.Text" Class="mb-2" />
+                <MudTextField T="string" ReadOnly Text="Cagayan de Oro City" Label="City" Variant="Variant.Text" Class="mb-2" />
+                <MudTextField T="string" ReadOnly Text="Carmen, Dabatian Street" Label="Barangay/Street" Variant="Variant.Text" Class="mb-2" />
+            </MudPaper>
+        </div>
+        <div class="col-md-12 pb-3">
+            <MudPaper Class="p-3" Outlined>
+                <MudText Typo="Typo.body1" Color="Color.Primary" Class="mb-4">About Me</MudText>
+                <p>
+                    Motivated with @(DateTime.Now.Year - 2017) years of Area of expertise. Recognized for assessing operational needs and developing solutions to save costs, improve revenues, and drive customer satisfaction. Resourceful and well-organized with excellent leadership and team building record. Customer-oriented Web and Mobile Developer with strong history of leading high-performance team to meet or exceed objectives. Dedicated and hardworking with internal drive to deliver.
+                </p>
+            </MudPaper>
+        </div>
+        <div class="col-md-12 pb-3">
+            <MudPaper Class="p-3" Outlined>
+                <MudText Typo="Typo.body1" Color="Color.Primary" Class="mb-4">Languages</MudText>
+                <MudChip Text="English" Size="Size.Large" Icon="@Icons.Rounded.Language" Variant="Variant.Outlined" />
+                <MudChip Text="Filipino" Size="Size.Large" Icon="@Icons.Rounded.Language" Variant="Variant.Outlined" />
+                <MudChip Text="Cebuano" Size="Size.Large" Icon="@Icons.Rounded.Language" Variant="Variant.Outlined" />
+            </MudPaper>
+        </div>
+        <div class="col-md-12 pb-3">
+            <MudPaper Class="p-3" Outlined>
+                <MudText Typo="Typo.body1" Color="Color.Primary" Class="mb-4">Skills</MudText>
+                <p>
+                    Web Designer
+                    <MudRating Size="Size.Small" SelectedValue="4" ReadOnly Disabled Class="ml-4" />
+                </p>
+                <p>
+                    Backend C# Programmer
+                    <MudRating Size="Size.Small" SelectedValue="5" ReadOnly Disabled Class="ml-4" />
+                </p>
+                <p>
+                    Teamwork
+                    <MudRating Size="Size.Small" SelectedValue="4" ReadOnly Disabled Class="ml-4" />
+                </p>
+                <p>
+                    HTML/CSS
+                    <MudRating Size="Size.Small" SelectedValue="4" ReadOnly Disabled Class="ml-4" />
+                </p>
+                <p>
+                    Communication
+                    <MudRating Size="Size.Small" SelectedValue="3" ReadOnly Disabled Class="ml-4" />
+                </p>
+                <p>
+                    Problem Solving
+                    <MudRating Size="Size.Small" SelectedValue="4" ReadOnly Disabled Class="ml-4" />
+                </p>
+                <p>
+                    System Analysis
+                    <MudRating Size="Size.Small" SelectedValue="4" ReadOnly Disabled Class="ml-4" />
+                </p>
+                <p>
+                    Copywriting
+                    <MudRating Size="Size.Small" SelectedValue="3" ReadOnly Disabled Class="ml-4" />
+                </p>
+            </MudPaper>
+        </div>
+        <div class="col-md-12 pb-3">
+            <MudPaper Class="p-3" Outlined>
+                <MudText Typo="Typo.body1" Color="Color.Primary" Class="mb-4">Hobbies</MudText>
+                <p>
+                    <MudChip Text="Play" Size="Size.Large" Icon="@Icons.Rounded.Games" Variant="Variant.Outlined" />
+                </p>
+                <p>
+                    <MudChip Text="Code" Size="Size.Large" Icon="@Icons.Rounded.Code" Variant="Variant.Outlined" />
+                </p>
+                <p>
+                    <MudChip Text="Sleep" Size="Size.Large" Icon="@Icons.Rounded.Bed" Variant="Variant.Outlined" />
+                </p>
+                <p>
+                    <MudChip Text="Repeat" Size="Size.Large" Icon="@Icons.Rounded.Repeat" Variant="Variant.Outlined" />
+                </p>
+            </MudPaper>
+        </div>
+    </div>
+    
+</MudPaper>
+

@@ -1,0 +1,56 @@
+﻿@page "/workexp"
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        State.APPBAR_TITLE = "Work Experience";
+    }
+}
+
+
+<div class="row">
+    <div class="col-md-12 pb-5">
+        <MudPaper Class="p-3" Elevation="25">
+            <MudText Typo="Typo.h4" Color="Color.Primary" Class="mb-4">Provincial Government of Misamis Oriental</MudText>
+            <MudTextField T="string" ReadOnly Text="Web and Desktop Developer" Label="Position" Variant="Variant.Text" Class="mb-2" />
+            <MudTextField T="string" ReadOnly Text="Developed and enhanced the system of selected offices" Label="Description" Variant="Variant.Text" Class="mb-2" />
+            <MudTextField T="string" ReadOnly Text="Contractual" Label="Status" Variant="Variant.Text" Class="mb-2" />
+            <MudText Typo="Typo.body1" Color="Color.Primary" Class="mt-5">Systems Created:</MudText>
+            <MudList Clickable Dense>
+                <MudListItem Icon="@Icons.Rounded.Link" OnClick="@(()=> nav.NavigateTo("https://intranet.misamisoriental.gov.ph/mopiad"))">Local School Board Archiving System - Website</MudListItem>
+                <MudListItem Icon="@Icons.Rounded.Link" OnClick="@(()=> nav.NavigateTo("https://intranet.misamisoriental.gov.ph/pmec"))">PMEC Infrastructure Information System - Website</MudListItem>
+                <MudListItem Icon="@Icons.Rounded.Link" OnClick="@(()=> nav.NavigateTo("https://pesomisor.com"))">Public Employment Service Office - Website</MudListItem>
+                <MudListItem Icon="@Icons.Rounded.DesktopWindows">Human Resource (Notice of Salary Increment/Adjustment) System - Desktop Application</MudListItem>
+            </MudList>
+        </MudPaper>
+    </div>
+    <div class="col-md-12 pb-5">
+        <MudPaper Class="p-3" Elevation="25">
+            <MudText Typo="Typo.h4" Color="Color.Primary" Class="mb-4">Patsada Foods Corporation</MudText>
+            <MudTextField T="string" ReadOnly Text="Developer" Label="Position" Variant="Variant.Text" Class="mb-2" />
+            <MudTextField T="string" ReadOnly Text="Created a system for inventory of products and materials" Label="Description" Variant="Variant.Text" Class="mb-2" />
+            <MudTextField T="string" ReadOnly Text="Freelance" Label="Status" Variant="Variant.Text" Class="mb-2" />
+            <MudText Typo="Typo.body1" Color="Color.Primary" Class="mt-5">System Created:</MudText>
+            <MudList Clickable Dense>
+                <MudListItem Icon="@Icons.Rounded.Link" OnClick="@(()=> nav.NavigateTo("https://patsadafoods.com"))">Patsadafoods.com - Website</MudListItem>
+            </MudList>
+        </MudPaper>
+    </div>
+    <div class="col-md-12 pb-5">
+        <MudPaper Class="p-3" Elevation="25">
+            <MudText Typo="Typo.h4" Color="Color.Primary" Class="mb-4">Playstore Application(s)</MudText>
+            <MudList Clickable Dense>
+                <MudListItem Icon="@Icons.Rounded.Link" OnClick="@(()=> nav.NavigateTo("https://play.google.com/store/apps/details?id=code.republic.r1o.wallpapercollection"))">Wallpaper Collections 2020</MudListItem>
+            </MudList>
+        </MudPaper>
+    </div>
+    <div class="col-md-12 pb-5">
+        <MudPaper Class="p-3" Elevation="25">
+            <MudText Typo="Typo.h4" Color="Color.Primary" Class="mb-4">Rentazon LLC</MudText>
+            <MudTextField T="string" ReadOnly Text="Junior Web Developer" Label="Position" Variant="Variant.Text" Class="mb-2" />
+            <MudTextField T="string" ReadOnly Text="Freelance" Label="Status" Variant="Variant.Text" Class="mb-2" />
+            <MudList Clickable Dense>
+                <MudListItem Icon="@Icons.Rounded.Link" OnClick="@(()=> nav.NavigateTo("https://rentazon-webapp-test.azurewebsites.net"))">Rentazon.com - Website</MudListItem>
+            </MudList>
+        </MudPaper>
+    </div>
+</div>
